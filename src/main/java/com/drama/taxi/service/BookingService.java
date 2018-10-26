@@ -17,4 +17,8 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
+    public void bookingTaxi(Booking booking){
+        bookingRepository.save(booking);
+    }
+
 }

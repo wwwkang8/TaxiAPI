@@ -32,6 +32,7 @@ public class Booking {
         this.user = user;
     }
 
+
     public Booking() {
     }
 

@@ -19,7 +19,7 @@ public class UserController {
     UserService userService;
 
     @Autowired
-    BookingService bookingService;
+    BookingController bookingController;
 
     @GetMapping("/regForm")
     public String registerForm(){
@@ -59,7 +59,6 @@ public class UserController {
         }
         System.out.println("Login Success");
         session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
-        model.addAttribute("booking", bookingService.getBookingList());
         User sessionedUser=(User)HttpSessionUtils.getUserFromSession(session);
         if(sessionedUser.getUserType().equals("passenger")){
             return "redirect:/passenger";
