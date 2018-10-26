@@ -85,14 +85,6 @@ public class User {
         this.isAvailable = isAvailable;
     }
 
-    public List<Booking> getBooking() {
-        return booking;
-    }
-
-    public void setBooking(List<Booking> booking) {
-        this.booking = booking;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -101,7 +93,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", userType='" + userType + '\'' +
                 ", isAvailable=" + isAvailable +
-                ", booking=" + booking +
                 '}';
     }
 }
