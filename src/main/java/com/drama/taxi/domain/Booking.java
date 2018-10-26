@@ -2,6 +2,7 @@ package com.drama.taxi.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Booking {
@@ -74,8 +75,11 @@ public class Booking {
         this.driver = driver;
     }
 
-    public LocalDateTime getCreateDate() {
-        return createDate;
+    public String getCreateDate() {
+        if (createDate == null) {
+            return "";
+        }
+        return createDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
     }
 
     public void setCreateDate(LocalDateTime createDate) {

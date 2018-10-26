@@ -1,10 +1,12 @@
 package com.drama.taxi.controller;
 
 import com.drama.taxi.domain.User;
+import com.drama.taxi.service.BookingService;
 import com.drama.taxi.service.UserService;
 import oracle.jdbc.proxy.annotation.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +17,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    BookingService bookingService;
 
     @GetMapping("/regForm")
     public String registerForm(){
@@ -40,7 +45,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(String userEmail, String password, HttpSession session){
+    public String login(String userEmail, String password, HttpSession session, Model model){
         User user=userService.findByUserEmail(userEmail);
 
         if (user == null) {
@@ -54,8 +59,13 @@ public class UserController {
         }
         System.out.println("Login Success");
         session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
-
-        return "redirect:/";
+        model.addAttribute("booking", bookingService.getBookingList());
+        User sessionedUser=(User)HttpSessionUtils.getUserFromSession(session);
+        if(sessionedUser.getUserType().equals("passenger")){
+            return "redirect:/passenger";
+        }else{
+            return "redirect:/driver";
+        }
     }
 
     @GetMapping("/loginFail")

@@ -12,4 +12,10 @@ public class WebController {
     public String main() {
         return "index";
     }
+
+    @GetMapping("passenger")
+    public String passengerMain(){return "passenger_index";}
+
+    @GetMapping("driver")
+    public String driverMain(){return "driver_index";}
 }
