@@ -37,14 +37,27 @@ public class BookingService {
     /*택시기사가 배차를 수락했을 때 예약을 업데이트 하는 트랜잭션*/
     @Transactional
     public String updateBooking(Long bookingNum, Long driverNum){
-        User driver=userRepository.findUserById(driverNum); //택시 기사의 정보를 가져온다.
-        Booking booking=bookingRepository.findBookingById(bookingNum); //업데이트할 예약정보를 불러온다.
-        booking.setAssignedDate(LocalDateTime.now()); //배차가 완료된 시각을 입력
-        booking.setDriver(driver.getUserEmail()); //운전할 택시기사의 이메일을 입력
-        booking.setStatus("배차완료");
-        bookingRepository.saveAndFlush(booking); //변경된 예약정보를 DB와 동기화.
 
-        return "success";
+        String result=""; //Ajax에 반환할 성공여부
+        User driver=userRepository.findUserById(driverNum); //택시 기사의 정보를 가져온다.
+        Booking booking=bookingRepository.findBookingById(bookingNum);//업데이트할 예약정보를 불러온다.
+
+        if(driver.getIsAvailable()==1&&booking.getDriver()==null){//택시기사가 배차 수락이 가능한 경우
+
+            booking.setAssignedDate(LocalDateTime.now()); //배차가 완료된 시각을 입력
+            booking.setDriver(driver.getUserEmail()); //운전할 택시기사의 이메일을 입력
+            booking.setStatus("배차완료");
+            driver.setIsAvailable(0);//배차가 되면 더 이상 배차가 되지 않도록 0으로 변경.
+            bookingRepository.saveAndFlush(booking); //변경된 예약정보를 DB와 동기화.
+            userRepository.saveAndFlush(driver);
+            result="success";
+        }else{//택시기사가 이미 배차가 되어있어서 배차 수락이 불가능한 경우
+            result="fail";
+        }
+
+
+
+        return result;
     }
 
 

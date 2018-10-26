@@ -13,6 +13,7 @@ public class User {
     private String userEmail;
     private String password;
     private String userType;
+    private int isAvailable;
 
     @OneToMany(mappedBy = "user")
     private List<Booking> booking;
@@ -20,10 +21,11 @@ public class User {
     public User() {
     }
 
-    public User(String userEmail, String password, String userType) {
+    public User(String userEmail, String password, String userType, int isAvailable) {
         this.userEmail = userEmail;
         this.password = password;
         this.userType = userType;
+        this.isAvailable=isAvailable;
     }
 
     public boolean matchId(String newUserEmail) {
@@ -75,6 +77,22 @@ public class User {
         this.userType = userType;
     }
 
+    public int getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(int isAvailable) {
+        this.isAvailable = isAvailable;
+    }
+
+    public List<Booking> getBooking() {
+        return booking;
+    }
+
+    public void setBooking(List<Booking> booking) {
+        this.booking = booking;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -82,6 +100,8 @@ public class User {
                 ", userEmail='" + userEmail + '\'' +
                 ", password='" + password + '\'' +
                 ", userType='" + userType + '\'' +
+                ", isAvailable=" + isAvailable +
+                ", booking=" + booking +
                 '}';
     }
 }
