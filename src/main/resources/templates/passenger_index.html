@@ -55,8 +55,32 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 text-center">
                 <div class="heading pb-4">
-                    <h2 class="f-weight-500">나의 배차표</h2>
-                    <a href="/booking/form">배차 신청하기</a>
+                    <h2 class="f-weight-500">나의 배차표</h2><a href="/booking/form">배차 신청하기</a>
+                    <div class="row">
+                        <table>
+                            <tr>
+                                <th>배차번호</th>
+                                <th>목적지</th>
+                                <th>승객</th>
+                                <th>배차여부</th>
+                                <th>택시기사</th>
+                                <th>등록일시</th>
+                                <th>수락일시</th>
+                            </tr>
+                            {{#booking}}
+                            <tr>
+                                <td>{{id}}</td>
+                                <td>{{destination}}</td>
+                                <td>{{passenger}}</td>
+                                <td>{{status}}</td>
+                                <td>driver</td>
+                                <td>{{createDate}}</td>
+                                <td>assignDate</td>
+                            </tr>
+                            {{/booking}}
+                        </table>
+                    </div>
+
 
                 </div>
             </div>

@@ -1,9 +1,12 @@
 package com.drama.taxi.service;
 
+import com.drama.taxi.domain.Booking;
 import com.drama.taxi.domain.User;
 import com.drama.taxi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -31,5 +34,7 @@ public class UserService {
     public User findByUserEmail(String userEmail){
         return userRepository.findByUserEmail(userEmail);
     }
+
+
 
 }

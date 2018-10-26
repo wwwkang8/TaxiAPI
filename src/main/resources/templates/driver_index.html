@@ -55,49 +55,40 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 text-center">
                 <div class="heading pb-4">
-                    <h2 class="f-weight-500">택시 배차표</h2>
+                    <h2 class="f-weight-500">승객 배차리스트</h2>
+                    <div class="row">
+                        <table>
+                            <tr>
+                                <th>배차번호</th>
+                                <th>목적지</th>
+                                <th>승객</th>
+                                <th>배차여부</th>
+                                <th>택시기사</th>
+                                <th>등록일시</th>
+                                <th>수락일시</th>
+                                <th>배차수락</th>
+                            </tr>
+                            {{#booking}}
+                            <tr>
+                                <td>{{id}}</td>
+                                <td>{{destination}}</td>
+                                <td>{{passenger}}</td>
+                                <td>{{status}}</td>
+                                <td>미정</td>
+                                <td>{{createDate}}</td>
+                                <td>미정</td>
+                                <td><input type="button" value="수락"></td>
+                            </tr>
+                            {{/booking}}
+                        </table>
+                    </div>
+
 
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<div class="row">
-    <table>
-        <tr>
-            <th>배차번호</th>
-            <th>목적지</th>
-            <th>승객</th>
-            <th>배차여부</th>
-            <th>택시기사</th>
-            <th>등록일시</th>
-            <th>수락일시</th>
-        </tr>
-        <tr>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-        </tr>
-
-        <tr>
-            {{#booking}}
-            <td>{{id}}</td>
-            <td>{{destination}}</td>
-            <td>{{passenger}}</td>
-            <td>{{status}}</td>
-            <td>{{driver}}</td>
-            <td>{{createDate}}</td>
-            <td>{{assignedDate}}</td>
-            {{/booking}}
-        </tr>
-
-    </table>
-</div>
 <!--End Categories -->
 
 <!-- Visited Places -->
