@@ -9,15 +9,15 @@ INSERT INTO user (id, user_email, password, user_type) VALUES (8, 'wwwkang8@gmai
 INSERT INTO user (id, user_email, password, user_type) VALUES (9, 'wwwkang9@gmail.com', '123456789', 'passenger');
 INSERT INTO user (id, user_email, password, user_type) VALUES (10, 'wwwkang10@gmail.com', '123456789', 'passenger');
 INSERT INTO user (id, user_email, password, user_type) VALUES (11, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (12, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (13, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (14, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (15, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (16, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (17, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (18, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (19, 'driver1@gmail.com', '123456789', 'driver');
-INSERT INTO user (id, user_email, password, user_type) VALUES (20, 'driver1@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (12, 'driver2@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (13, 'driver3@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (14, 'driver4@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (15, 'driver5@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (16, 'driver6@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (17, 'driver7@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (18, 'driver8@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (19, 'driver9@gmail.com', '123456789', 'driver');
+INSERT INTO user (id, user_email, password, user_type) VALUES (20, 'driver10@gmail.com', '123456789', 'driver');
 
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (1, '광화문 15길','wwwkang1@gmail.com', 'waiting', null,now(), null , 1);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (2, '인덕원 503동','wwwkang2@gmail.com', 'waiting', null,now(), null , 2);
