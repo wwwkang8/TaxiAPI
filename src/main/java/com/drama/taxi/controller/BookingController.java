@@ -5,10 +5,7 @@ import com.drama.taxi.domain.User;
 import com.drama.taxi.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
@@ -43,5 +40,29 @@ public class BookingController {
     public String bookingSuccess(){
         return "/booking/bookingSuccess";
     }
+
+    @PostMapping("/update")
+    @ResponseBody
+    public String updateBooking(String bookingNo, String driverId){
+        Long bookingNum=Long.parseLong(bookingNo);
+        Long driverNum=Long.parseLong(driverId);
+
+        String result=bookingService.updateBooking(bookingNum, driverNum);
+
+        return result;
+    }
+
+    /*택시기사에게 배차가 완료되었을 때*/
+    @GetMapping("/acceptSuccess")
+    public String acceptSuccess(){
+        return "/booking/acceptSuccess";
+    }
+
+    /*택시기사에게 배차가 실패했을 때*/
+    @GetMapping("/acceptFail")
+    public String acceptFail(){
+        return "/booking/acceptFail";
+    }
+
 
 }

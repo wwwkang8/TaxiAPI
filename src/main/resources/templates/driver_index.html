@@ -3,6 +3,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 
+    $(document).ready(function(){
+
+
+        $(":input[name=bookingAccept]").click(function(){
+            var bookingNo=$(this).parent().parent().find(".bookingNumber").text();
+            var driverId=$(this).parent().parent().find(".hiddenSession").val();
+
+            $.ajax({
+              type:"post",
+              url:"/booking/update/",
+              data:"bookingNo="+bookingNo+"&driverId="+driverId,
+              success: function(data){
+                  if(data=="success"){
+                      location.href="/booking/acceptSuccess";
+                  }else{
+                      location.href="/booking/acceptFail";
+                  }
+              }
+
+            });//ajax
+
+        });//click function
+
+
+    });//ready
 
 </script>
 <style>
@@ -70,20 +95,31 @@
                             </tr>
                             {{#booking}}
                             <tr>
-                                <td>{{id}}</td>
+                                <td class="bookingNumber">{{id}}</td>
+                                {{#sessionedUser}}
+                                <input type="hidden" class="hiddenSession" value="{{id}}">
+                                {{/sessionedUser}}
                                 <td>{{destination}}</td>
                                 <td>{{passenger}}</td>
                                 <td>{{status}}</td>
+                                {{#driver}}
+                                <td>{{driver}}</td>
+                                {{/driver}}
+                                {{^driver}}
                                 <td>미정</td>
+                                {{/driver}}
                                 <td>{{createDate}}</td>
+                                {{#assignedDate}}
+                                <td>{{assignedDate}}</td>
+                                {{/assignedDate}}
+                                {{^assignedDate}}
                                 <td>미정</td>
-                                <td><input type="button" value="수락"></td>
+                                {{/assignedDate}}
+                                <td><input type="button" value="수락" name="bookingAccept"></td>
                             </tr>
                             {{/booking}}
                         </table>
                     </div>
-
-
                 </div>
             </div>
         </div>

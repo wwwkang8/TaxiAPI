@@ -13,7 +13,7 @@ public class Booking {
 
     private String destination;
     private String passenger;
-    private String status="waiting";
+    private String status="배차대기";
     private String driver;
     private LocalDateTime createDate;
     private LocalDateTime assignedDate;
@@ -87,8 +87,13 @@ public class Booking {
         this.createDate = createDate;
     }
 
-    public LocalDateTime getAssignedDate() {
-        return assignedDate;
+    public String getAssignedDate() {
+
+        if (assignedDate == null) {
+            return "";
+        }
+        return assignedDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
+
     }
 
     public void setAssignedDate(LocalDateTime assignedDate) {
