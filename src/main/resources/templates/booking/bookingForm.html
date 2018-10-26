@@ -67,9 +67,31 @@
         }
     </style>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var checkId="";
+    $(document).ready(function(){
+
+        //registerForm onsubmit 함수
+        $("#registerForm").submit(function(){
+            var destLength=$(":input[name=destination]").val();
+            if(destLength.length>100){
+                alert("목적지는 100자 이내로 작성해주세요");
+                return false;
+            }
+
+        });
+
+
+    });
+
+
+
+</script>
 <body>
 
-<form action="/booking/" method="post">
+<form action="/booking/" method="post" id="registerForm" onsubmit="submit">
     <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
