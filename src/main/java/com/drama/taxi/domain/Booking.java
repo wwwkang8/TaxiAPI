@@ -18,7 +18,7 @@ public class Booking {
     private LocalDateTime assignedDate;
 
     @ManyToOne
-    @JoinColumn(name = "user_email")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Booking(String destination, String passenger, String status, String driver, LocalDateTime createDate, LocalDateTime assignedDate, User user) {

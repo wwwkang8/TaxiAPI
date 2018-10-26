@@ -1,6 +1,7 @@
 package com.drama.taxi.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,7 +15,7 @@ public class User {
     private String userType;
 
     @OneToMany(mappedBy = "user")
-    private Booking booking;
+    private List<Booking> booking;
 
     public User() {
     }
