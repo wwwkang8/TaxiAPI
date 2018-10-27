@@ -3,6 +3,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 
+    $(document).ready(function(){
+
+        alert("안녕");
+
+
+    });
 
 </script>
 <style>
@@ -55,49 +61,13 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 text-center">
                 <div class="heading pb-4">
-                    <h2 class="f-weight-500">택시 배차표</h2>
-
+                    <h1 class="f-weight-500">택시 배차표</h1>
+                    <h2>회원가입 또는 로그인 후 서비스를 이용해주세요</h2>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<div class="row">
-    <table>
-        <tr>
-            <th>배차번호</th>
-            <th>목적지</th>
-            <th>승객</th>
-            <th>배차여부</th>
-            <th>택시기사</th>
-            <th>등록일시</th>
-            <th>수락일시</th>
-        </tr>
-        <tr>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-            <td>ㅁㄴㅇㄹ</td>
-        </tr>
-
-        <tr>
-            {{#booking}}
-            <td>{{id}}</td>
-            <td>{{destination}}</td>
-            <td>{{passenger}}</td>
-            <td>{{status}}</td>
-            <td>{{driver}}</td>
-            <td>{{createDate}}</td>
-            <td>{{assignedDate}}</td>
-            {{/booking}}
-        </tr>
-
-    </table>
-</div>
 <!--End Categories -->
 
 <!-- Visited Places -->
