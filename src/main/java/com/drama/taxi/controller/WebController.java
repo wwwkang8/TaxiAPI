@@ -32,8 +32,8 @@ public class WebController {
     @GetMapping("/passenger")
     public ModelAndView passengerMain(HttpSession session){
         User sessionedUser=(User)HttpSessionUtils.getUserFromSession(session);
-        System.out.println("해당 승객의 배차 목록  : "+bookingService.getPassengerBookingList(sessionedUser));
-        ModelAndView mv=new ModelAndView("passenger_index", "booking", bookingService.getPassengerBookingList(sessionedUser));
+        Long passengerId=sessionedUser.getId();
+        ModelAndView mv=new ModelAndView("passenger_index", "booking", bookingService.findPassengerBookingList(passengerId));
         return mv;
     }
 

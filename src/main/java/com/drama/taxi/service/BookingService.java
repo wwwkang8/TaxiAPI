@@ -29,9 +29,8 @@ public class BookingService {
         bookingRepository.save(booking);
     }
 
-    public Booking getPassengerBookingList(User user){
-        Long userId=user.getId();
-        return bookingRepository.findBookingById(userId);
+    public List<Booking> findPassengerBookingList(Long id){
+        return bookingRepository.findPassengerBookingList(id);
     }
 
     /*택시기사가 배차를 수락했을 때 예약을 업데이트 하는 트랜잭션*/
