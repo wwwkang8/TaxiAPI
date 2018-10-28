@@ -65,11 +65,19 @@ public class UserController {
         }
     }
 
+    /*로그인 실패시 보여주는 페이지*/
     @GetMapping("/loginFail")
     public String loginFail(){
         return "/user/loginFail";
     }
 
+    /*세션이 없을 때 메인 페이지로 이동 시켜주는 메서드*/
+    @GetMapping("/noSession")
+    public String noSession(){
+        return "/user/noSession";
+    }
+
+    /*로그 아웃*/
     @GetMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);

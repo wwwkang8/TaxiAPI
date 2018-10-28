@@ -54,8 +54,6 @@ public class BookingService {
             result="fail";
         }
 
-
-
         return result;
     }
 
