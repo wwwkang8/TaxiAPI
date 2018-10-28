@@ -44,25 +44,7 @@ public class UserController {
 
     @PostMapping("/login")
     public String login(String userEmail, String password, HttpSession session){
-        /*User user=userService.findByUserEmail(userEmail);
 
-        if (user == null) {
-            System.out.println("Login fail");
-            return "redirect:/users/loginFail";
-        }
-
-        if (!user.matchPassword(password)) {
-            System.out.println("Login fail");
-            return "redirect:/users/loginForm";
-        }
-        System.out.println("Login Success");
-        session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
-        User sessionedUser=(User)HttpSessionUtils.getUserFromSession(session);
-        if(sessionedUser.getUserType().equals("passenger")){
-            return "redirect:/passenger";
-        }else{
-            return "redirect:/driver";
-        }*/
         String result=userService.login(userEmail, password, session);
 
         return result;
