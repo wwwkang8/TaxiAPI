@@ -40,10 +40,8 @@ public class BookingController {
     @PostMapping("/update")
     @ResponseBody
     public String updateBooking(String bookingNo, String driverId){
-        Long bookingNum=Long.parseLong(bookingNo);
-        Long driverNum=Long.parseLong(driverId);
 
-        String result=bookingService.updateBooking(bookingNum, driverNum);
+        String result=bookingService.updateBooking(bookingNo, driverId);
 
         return result;
     }
