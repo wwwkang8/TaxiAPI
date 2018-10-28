@@ -43,8 +43,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(String userEmail, String password, HttpSession session, Model model){
-        User user=userService.findByUserEmail(userEmail);
+    public String login(String userEmail, String password, HttpSession session){
+        /*User user=userService.findByUserEmail(userEmail);
 
         if (user == null) {
             System.out.println("Login fail");
@@ -62,7 +62,10 @@ public class UserController {
             return "redirect:/passenger";
         }else{
             return "redirect:/driver";
-        }
+        }*/
+        String result=userService.login(userEmail, password, session);
+
+        return result;
     }
 
     /*로그인 실패시 보여주는 페이지*/
