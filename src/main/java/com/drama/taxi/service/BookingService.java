@@ -1,5 +1,6 @@
 package com.drama.taxi.service;
 
+import com.drama.taxi.controller.HttpSessionUtils;
 import com.drama.taxi.domain.Booking;
 import com.drama.taxi.domain.User;
 import com.drama.taxi.repository.BookingRepository;
@@ -7,6 +8,7 @@ import com.drama.taxi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Iterator;
@@ -25,7 +27,9 @@ public class BookingService {
         return bookingRepository.findAllByOrderByCreateDateDesc();
     }
 
-    public void bookingTaxi(Booking booking){
+    public void bookingTaxi(String dest, HttpSession session){
+        User sessionedUser = HttpSessionUtils.getUserFromSession(session);
+        Booking booking=new Booking(dest, sessionedUser.getUserEmail(), "배차대기", null, LocalDateTime.now(), null, sessionedUser);
         bookingRepository.save(booking);
     }
 
@@ -35,7 +39,9 @@ public class BookingService {
 
     /*택시기사가 배차를 수락했을 때 예약을 업데이트 하는 트랜잭션*/
     @Transactional
-    public String updateBooking(Long bookingNum, Long driverNum){
+    public String updateBooking(String bookingNumber, String driverNumber){
+        Long bookingNum=Long.parseLong(bookingNumber); // String 타입의 예약번호를 Long 형으로 변환
+        Long driverNum=Long.parseLong(driverNumber); // String 타입의 택시기사번호를 Long 형으로 변환
 
         String result=""; //Ajax에 반환할 성공여부
         User driver=userRepository.findUserById(driverNum); //택시 기사의 정보를 가져온다.

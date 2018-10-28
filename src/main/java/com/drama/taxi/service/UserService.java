@@ -1,11 +1,14 @@
 package com.drama.taxi.service;
 
+import com.drama.taxi.controller.HttpSessionUtils;
 import com.drama.taxi.domain.Booking;
 import com.drama.taxi.domain.User;
 import com.drama.taxi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -35,6 +38,30 @@ public class UserService {
         return userRepository.findByUserEmail(userEmail);
     }
 
+    public String login(String userEmail, String password, HttpSession session){
+        User user=this.findByUserEmail(userEmail);
+        String result="";
+
+        if (user == null) {
+            System.out.println("Login fail");
+            result= "redirect:/users/loginFail";
+        }
+
+        if (!user.matchPassword(password)) {
+            System.out.println("Login fail");
+            result= "redirect:/users/loginForm";
+        }
+        System.out.println("Login Success");
+        session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
+        User sessionedUser=(User)HttpSessionUtils.getUserFromSession(session);
+        if(sessionedUser.getUserType().equals("passenger")){
+            result= "redirect:/passenger";
+        }else{
+            result= "redirect:/driver";
+        }
+
+        return result;
+    }
 
 
 }

@@ -28,11 +28,7 @@ public class BookingController {
         if(!HttpSessionUtils.isLoginUser(session)){
             return "/users/noSession";
         }
-
-        User sessionedUser = HttpSessionUtils.getUserFromSession(session);
-        Booking booking=new Booking(dest, sessionedUser.getUserEmail(), "배차대기", null, LocalDateTime.now(), null, sessionedUser);
-        bookingService.bookingTaxi(booking);
-
+        bookingService.bookingTaxi(dest, session);
         return "/booking/bookingSuccess";
     }
 
@@ -44,10 +40,8 @@ public class BookingController {
     @PostMapping("/update")
     @ResponseBody
     public String updateBooking(String bookingNo, String driverId){
-        Long bookingNum=Long.parseLong(bookingNo);
-        Long driverNum=Long.parseLong(driverId);
 
-        String result=bookingService.updateBooking(bookingNum, driverNum);
+        String result=bookingService.updateBooking(bookingNo, driverId);
 
         return result;
     }
