@@ -16,7 +16,7 @@ public class WebConfiguration implements WebMvcConfigurer {
         registry.addInterceptor(new MyInterceptor())
                 .addPathPatterns("/passenger")
                 .addPathPatterns("/driver")
-                .addPathPatterns("/booking/form");
+                .addPathPatterns("/booking/form"); //URL로 접근할 수 없게 패턴을 지정.
     }
 
 }
