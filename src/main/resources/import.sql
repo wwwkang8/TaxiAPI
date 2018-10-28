@@ -38,7 +38,7 @@ INSERT INTO booking (id, destination,passenger, status, driver, create_date, ass
 INSERT INTO booking (id, destination,passenger, status, driver, create_date, assigned_date, user_id) VALUES (17, '아주대학교 정문', 'wwwkang7@gmail.com', '배차대기',  null, now(), null , 7);
 INSERT INTO booking (id, destination,passenger, status, driver, create_date, assigned_date, user_id) VALUES (18,  '아주대학교 다산관','wwwkang8@gmail.com', '배차대기', null,  now(), null , 8);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (19, '아주대학교 율곡관', 'wwwkang9@gmail.com', '배차대기', null,  now(), null , 9);
-INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (20, '아주대학교 성호관', 'wwwkang10@gmail.com', '배차대기', null,  now(), now() , 10);
+INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (20, '아주대학교 성호관', 'wwwkang10@gmail.com', '배차대기', null,  now(), null , 10);
 INSERT INTO booking (id, destination,  passenger, status, driver, create_date, assigned_date, user_id) VALUES (21, '아주대학교 학생회관', 'wwwkang1@gmail.com', '배차대기', null,  now(), null , 1);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (22, '아주대학교 기숙사', 'wwwkang2@gmail.com', '배차대기', null,  now(), null , 2);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (23, '아주대학교 국제학사', 'wwwkang3@gmail.com', '배차대기',  null, now(), null , 3);
@@ -46,7 +46,7 @@ INSERT INTO booking (id, destination, passenger, status, driver, create_date, as
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (25, '홍대 곱창집 15길', 'wwwkang5@gmail.com', '배차대기',  null, now(), null , 5);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (26, '마포구 상수역', 'wwwkang6@gmail.com', '배차대기',  null, now(), null , 6);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (27, '수원역 로데오거리','wwwkang7@gmail.com', '배차대기', null,  now(), null , 7);
-INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (28, '권선구 권선동','wwwkang8@gmail.com', '배차대기', null,  now(), now() , 8);
+INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (28, '권선구 권선동','wwwkang8@gmail.com', '배차대기', null,  now(), null , 8);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (29, '경희대학교 정문','wwwkang9@gmail.com', '배차대기', null,  now(), null , 9);
 INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (30, '연세대학교 정문', 'wwwkang10@gmail.com', '배차대기',  null, now(), null , 10);
-INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (31, '연세대학교 후문', 'wwwkang10@gmail.com', '배차대기',  null, now(), now() , 10);
+INSERT INTO booking (id, destination, passenger, status, driver, create_date, assigned_date, user_id) VALUES (31, '연세대학교 후문', 'wwwkang10@gmail.com', '배차대기',  null, now(), null , 10);
