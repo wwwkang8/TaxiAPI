@@ -23,16 +23,21 @@ public class BookingService {
     @Autowired
     UserRepository userRepository;
 
+    /*모든 배차 리스트를 최신순으로 가져오는 메서드*/
     public List<Booking> getBookingList(){
         return bookingRepository.findAllByOrderByCreateDateDesc();
     }
 
+    /*배차 신청을 등록하는 메서드*/
     public void bookingTaxi(String dest, HttpSession session){
         User sessionedUser = HttpSessionUtils.getUserFromSession(session);
+
+        /*입력 받은 배차 정보를 이용하여 Booking 객체를 생성*/
         Booking booking=new Booking(dest, sessionedUser.getUserEmail(), "배차대기", null, LocalDateTime.now(), null, sessionedUser);
-        bookingRepository.save(booking);
+        bookingRepository.save(booking);//배차 정보 저장.
     }
 
+    /*특정 승객의 배차 정보를 가져오는 메서드*/
     public List<Booking> findPassengerBookingList(Long id){
         return bookingRepository.findPassengerBookingList(id);
     }

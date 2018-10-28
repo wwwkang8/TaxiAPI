@@ -19,22 +19,26 @@ public class UserController {
     @Autowired
     BookingController bookingController;
 
+    /*회원가입 폼 이동 메서드*/
     @GetMapping("/regForm")
     public String registerForm(){
         return "/user/regForm";
     }
 
+    /*회원가입 메서드*/
     @PostMapping("/register")
     public String userRegister(User user){
         userService.userRegister(user);
         return "/user/registerSuccess";
     }
 
+    /*회원 가입 성공시 보여주는 페이지*/
     @GetMapping("/registerSuccess")
     public String registerSuccess(){
         return "redirect:/";
     }
 
+    /*이메일 중복 여부 체크*/
     @PostMapping("/checkEmail")
     @ResponseBody
     public String checkEmail(@RequestParam(name="userEmail") String userEmail){
@@ -42,6 +46,7 @@ public class UserController {
         return (count == 0) ? "ok" : "fail";
     }
 
+    /*로그인 메서드*/
     @PostMapping("/login")
     public String login(String userEmail, String password, HttpSession session){
 
@@ -65,7 +70,7 @@ public class UserController {
     /*로그 아웃*/
     @GetMapping("/logout")
     public String logout(HttpSession session){
-        session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);
+        session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY); //USER_SESSION_KEY 라는 이름의 세션을 제거.
         return "redirect:/";
     }
 
