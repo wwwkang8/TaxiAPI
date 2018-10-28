@@ -1,5 +1,6 @@
 package com.drama.taxi.service;
 
+import com.drama.taxi.controller.HttpSessionUtils;
 import com.drama.taxi.domain.Booking;
 import com.drama.taxi.domain.User;
 import com.drama.taxi.repository.BookingRepository;
@@ -7,6 +8,7 @@ import com.drama.taxi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Iterator;
@@ -25,7 +27,9 @@ public class BookingService {
         return bookingRepository.findAllByOrderByCreateDateDesc();
     }
 
-    public void bookingTaxi(Booking booking){
+    public void bookingTaxi(String dest, HttpSession session){
+        User sessionedUser = HttpSessionUtils.getUserFromSession(session);
+        Booking booking=new Booking(dest, sessionedUser.getUserEmail(), "배차대기", null, LocalDateTime.now(), null, sessionedUser);
         bookingRepository.save(booking);
     }
 
