@@ -24,7 +24,7 @@ public class BookingController {
     }
 
     /*배차 등록하는 메서드*/
-    @PostMapping("")
+    @PostMapping("/")
     public String bookingTaxi(@RequestParam(name="destination") String dest, HttpSession session){
         if(!HttpSessionUtils.isLoginUser(session)){ //Session이 없다면 메인 페이지로 이동
             return "/users/noSession";
