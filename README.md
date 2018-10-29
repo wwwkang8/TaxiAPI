@@ -25,15 +25,18 @@
       - 프로젝트 복제 : $ git clone https://github.com/wwwkang8/TaxiAPI.git
       - IDE로 프로젝트 import
         - intellij 기준 : 좌측 상단 File > New > Project from Existing sources > 프로젝트 경로 선택 > import방식 maven 선택
- ![default](https://user-images.githubusercontent.com/26863285/47618589-51085a00-db18-11e8-9250-dd2653990b53.png)
-        
         - Eclipse 기준 : 좌측 상단 File > import > Maven > Existing Maven Projects > 프로젝트 경로 선택 > finish
- ![default](https://user-images.githubusercontent.com/26863285/47618710-9a0cde00-db19-11e8-8352-fef377aac083.png)
- ![2](https://user-images.githubusercontent.com/26863285/47618711-9a0cde00-db19-11e8-926e-68eea95c563c.png)
-        
         - 프로젝트 실행 : src\main\java\com\drama\taxi\TaxiApplication.java 에서 Run 'TaxiApplication' 클릭.
         - URL 접속 : localhost:9090 으로 브라우저에서 접속.
  
+ 
+ ### 아키텍쳐 : Model 2 기반의 MVC 패턴
+ ![archi](https://user-images.githubusercontent.com/26863285/47635494-88b6e680-db98-11e8-8e38-90b11233a843.png)
+ 
+ 
+ ### 데이터베이스
+ ![db](https://user-images.githubusercontent.com/26863285/47635904-e13ab380-db99-11e8-90f2-85dec40c39ff.png)
+
  
  ### 주요 기능
      - 회원 가입
@@ -42,4 +45,3 @@
      - 승객 배차 신청 기능
      - 최신순으로 모든 배차 내역 확인
      - 택시기사 배차 수락 기능
-     - 
