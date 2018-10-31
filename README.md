@@ -25,7 +25,14 @@
  
  
  ### 실행 가이드
-      - 프로젝트 복제 : $ git clone https://github.com/wwwkang8/TaxiAPI.git
+      - 프로젝트 클론 : $ git clone https://github.com/wwwkang8/TaxiAPI.git
+      - 리눅스로 프로젝트 실행하는 방법
+        - $ cd TaxiAPI : TaxiAPI 폴더로 이동.
+        - $ chmod +x mvnw : 메이븐 권한 설정
+        - $ ./mvnw clean package : 메이븐으로 프로젝트 빌드.
+        - $ cd target : target 폴더로 이동.
+        - $ java -jar taxi-0.0.1-SNAPSHOT.jar & : 프로젝트 실행.
+        - 브라우저에서 localhost:9090으로 접속
       - IDE로 프로젝트 import
         - intellij 기준 : 좌측 상단 File > New > Project from Existing sources > 프로젝트 경로 선택 > import방식 maven 선택
         - Eclipse 기준 : 좌측 상단 File > import > Maven > Existing Maven Projects > 프로젝트 경로 선택 > finish
